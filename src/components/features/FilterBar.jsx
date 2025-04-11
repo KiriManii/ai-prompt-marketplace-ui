@@ -2,10 +2,9 @@ import { useState } from 'react'
 import Input from '../common/Input'
 import Button from '../common/Button'
 
-function FilterBar({ categories, onSearch, onCategorySelect, onSort }) {
+function FilterBar({ onSearch, onSort }) {
   const [searchQuery, setSearchQuery] = useState('')
   const [isMobileFiltersOpen, setIsMobileFiltersOpen] = useState(false)
-  const [selectedCategory, setSelectedCategory] = useState('')
   const [sortOption, setSortOption] = useState('popularity')
   
   const handleSearchChange = (e) => {
@@ -15,11 +14,6 @@ function FilterBar({ categories, onSearch, onCategorySelect, onSort }) {
   const handleSearchSubmit = (e) => {
     e.preventDefault()
     onSearch(searchQuery)
-  }
-  
-  const handleCategorySelect = (category) => {
-    setSelectedCategory(category)
-    onCategorySelect(category)
   }
   
   const handleSortChange = (e) => {
